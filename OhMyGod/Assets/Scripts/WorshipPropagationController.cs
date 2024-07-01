@@ -358,19 +358,19 @@ public class WorshipPropagationController : MonoBehaviour
         // 본인을 포함한 신도 수에 비례해 포교범위 조정 (하나 들어갈 때마다 3.5정도 크기 필요)
         // ex) 9명 정도는 3.5짜리 원 안에 들어감
         // ex) 25명 정도는 7짜리 원 안에 들어감
-        float desiredRadius = Mathf.Ceil(Mathf.Sqrt(ActiveWorshipers.Count + 1)) * 2.8f;
+        float desiredRadius = Mathf.Ceil(Mathf.Sqrt(ActiveWorshipers.Count + 1)) * 2.6f;
         propagationRange.transform.localScale = new Vector3(desiredRadius, desiredRadius, desiredRadius);
 
         // 플레이어인 경우 시야 범위도 조금씩 넓어지게 만듦
         if (cinemachineCamera != null)
         {
-            targetCameraLensOrthoSize = 6f + desiredRadius * 0.35f;
+            targetCameraLensOrthoSize = 6f + desiredRadius * 0.4f;
         }
     }
 
-    // 한 번 배틀에서 지면 10초간은 연속으로 공격할 수 없도록 보호함
+    // 한 번 배틀에서 지면 5초간 연속으로 공격할 수 없도록 보호함
     public void GiveProtectionPeriod()
     {
-        protectionPeriod = 10f;
+        protectionPeriod = 5f;
     }
 }
